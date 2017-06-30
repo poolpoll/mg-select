@@ -1,0 +1,20 @@
+{
+  "name": "mg-select",
+  "homepage": "https://github.com/possible819/mg-select",
+  "authors": [
+    "Jay Lee <jaylee.possible@gmail.com>"
+  ],
+  "description": "polymer mg-select component",
+  "main": "mg-select.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "polymer/polymer#^1.9.2"
+  }
+}
