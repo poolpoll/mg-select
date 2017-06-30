@@ -118,6 +118,15 @@
 				},
 
 				/**
+				 * placeholder font color
+				 * @type String
+				 */
+				placeholderFontColor: {
+					type: String,
+					value: '#CBCCCB'
+				},
+
+				/**
 				 * 선택한 option의 font color
 				 * @type String
 				 */
@@ -144,10 +153,19 @@
 				'select.change': 'selectedValueChanged'
 			},
 
+			/**
+			 * items가 변경되면 setModifiedItems를 호출하여 modifiedItems를 구성함
+			 * @param  Array items
+			 */
 			_itemsChanged: function(items) {
 				this.setModifiedItems(items);
 			},
 
+			/**
+			 * items를 전달 받아 displayProp와 valueProp가 적용된
+			 * modifiedItems를 구성함
+			 * @param Array items
+			 */
 			setModifiedItems: function(items, useEmpty) {
 				var preModifiedItems = items;
 
@@ -161,14 +179,25 @@
 				this.modifiedItems = preModifiedItems;
 			},
 
+			/**
+			 * 값이 선택되면 isSelected를 true로 변환하고
+			 * option 테그의 색상 테그를 변경한다.
+			 * 
+			 * @param  Object event
+			 */
 			selectedValueChanged: function(event) {
 				this.isSelected = true;
 				event.target.style.color = this.selectedOptFontColor;
 			},
 
+			/**
+			 * clear btn tap시 발생하며 option중 empty option을 선택하고
+			 * 색상을 변경한 뒤
+			 * @return {[type]} [description]
+			 */
 			clearBtnTapped: function() {
 				this.$['empty-option'].selected = true;
-				this.$['select'].style.color = '#7F807F';
+				this.$['select'].style.color = this.placeholderFontColor;
 				this.isSelected = false;
 
 			}
